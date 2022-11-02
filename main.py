@@ -21,21 +21,24 @@ list = soup.find('div', id="text")
 # for a in soup.find_all('a', href=True):
 #     print(a['href'])
 
-ll = []
+states = []
 
 for item in soup.find_all('p'):
 
     if item.text[0].isdigit():
+        #a = item.find_all('a')
+        #for link in a:
+        #    print(link['href'])
         line = item.text.split('\n')
 
         for l in line:
-            state = l[14:]
-            print(state)
-    
-
-    # if item.text[0].isdigit():
-    #     link = item.find_all('a')
-    #     print(link)
+            areaNumber = l[:11]
+            s = l[14:]
+            states.append(f"{s} - {areaNumber}")
+#states = set(states)
+#print(len(states))
+for s in states:
+    print(s)
 
         
 
