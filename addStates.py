@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
-from lxml import etree
+
 import requests
 import sqlite3
 
-URL = "https://socialsecuritynumerology.com/prefixes.php"
+URL = "https://socialsecuritynumerology.com/prefixes.php/"
 
 HEADERS = ({'User-Agent':
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 \
@@ -12,17 +12,9 @@ HEADERS = ({'User-Agent':
 
 webpage = requests.get(URL, headers=HEADERS)
 soup = BeautifulSoup(webpage.content, "html.parser")
-#dom = etree.HTML(str(soup))
-#print(dom.xpath('//*[@id="text"]/p[3]')[0].text)
-
 list = soup.find('div', id="text")
 
-# Get all links
 
-# for a in soup.find_all('a', href=True):
-#     print(a['href'])
-
-states = []
 
 
 def Crud(conn, name, areaNumber):
